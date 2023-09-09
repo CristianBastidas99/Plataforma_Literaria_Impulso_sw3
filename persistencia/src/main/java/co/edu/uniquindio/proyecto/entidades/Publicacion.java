@@ -7,23 +7,25 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
-@Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
-public class Genero implements Serializable {
+@Entity
+public class Publicacion implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "nombre", nullable = false)
-    private String nombre;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "estado", nullable = false)
+    private Estado estado;
 
-    @ManyToMany(mappedBy = "generos")
-    private List<ObraLiteraria> obraLiterarias = new ArrayList<>();
+    @OneToOne
+    @JoinColumn(name = "obra_literaria_id")
+    private ObraLiteraria obraLiteraria;
+
 }
