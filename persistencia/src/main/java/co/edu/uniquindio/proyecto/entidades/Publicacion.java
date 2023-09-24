@@ -7,7 +7,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,18 +19,6 @@ public class Publicacion implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private Long id;
-
-    @Column(name = "contenido", nullable = false)
-    private String contenido;
-
-    @Temporal(TemporalType.DATE)
-    private Date fechaPublicacion;
-
-    @Column(name = "titulo",  length = 70, nullable = false)
-    private String titulo;
-
-    @Column(name = "urlImagen", nullable = false)
-    private String urlImagen;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "estado", nullable = false)

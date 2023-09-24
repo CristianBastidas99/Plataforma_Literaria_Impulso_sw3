@@ -33,9 +33,6 @@ public class ObraLiteraria implements Serializable {
     @Column(name = "isbn",  length = 100, nullable = false)
     private String isbn;
 
-    @Column(name = "editorial",  length = 100, nullable = true)
-    private String editorial;
-
     @Enumerated(EnumType.STRING)
     @Column(name = "estado", nullable = false)
     private Estado estado;
