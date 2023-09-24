@@ -26,4 +26,5 @@ public class Comentario implements Serializable{
     @Temporal(TemporalType.TIMESTAMP)
     @Column(nullable = false)
     private Date fechaPublicacion;
+
 }
